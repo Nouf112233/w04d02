@@ -1,5 +1,6 @@
 import React , {useState , useEffect} from 'react'
 import TodoItem from "../TodoItem"
+import "./style.css"
 
 const Todo = () => {
     
@@ -18,12 +19,27 @@ const Todo = () => {
 
     
 
-    const handleDelete=(id) =>{
+    const handleDelete=(i) =>{
+        let todoFilter= toDos.filter(item=>item.id !=i);
+        setToDos(todoFilter);
+
 
     }
-    const handleEdit=(id) =>{
+    const handleEdit=(i) =>{
+        let newtask = prompt("Edit this task:");
+        let todoMap = toDos.map(item => {
+            if(i === item.id){
+                return {...item, task:newtask}
+            }else{
+                return item;
+
+            }
+        })
+            
+        setToDos(todoMap);
 
     }
+
 
 
 
@@ -40,6 +56,8 @@ const Todo = () => {
                     key={i}
                     name={item.task}
                     id={item.id}
+                    handleDelete={handleDelete}
+                    handleEdit={handleEdit}
                     />
                     ))}
                 </ul>

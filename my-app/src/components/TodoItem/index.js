@@ -6,8 +6,8 @@ const TodoItem =(props) => {
             <div className="todoitem">
                 <li>
                     <h2>{props.name}</h2>
-                    <h2 className="delete" onClick={()=> props.handleDelete(props.key)}>x</h2>
-                    <h2 className="edit" onClick={()=> props.handleEdit(props.key)}>Edit</h2>
+                    <h2 className="delete" onClick={()=> props.handleDelete(props.id)}>x</h2>
+                    <h2 className="edit" onClick={()=> props.handleEdit(props.id)}>Edit</h2>
                     </li>
                 
             </div>
